@@ -8,8 +8,11 @@ def index():
     # return "Flask is running!"
     return render_template("index.html")
 
-@app.route("/hello", methods=["POST"])
+@app.route("/hello", methods=["GET", "POST"])
 def hello():
+    if request.method == "GET":
+        return render_template("hello.html")
+    
     message = request.get_json(force=True)
     name = message["name"]
     response = {
