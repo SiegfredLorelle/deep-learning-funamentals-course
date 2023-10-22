@@ -15,5 +15,6 @@
 
 ## TODOs
 - flask deployment
+- fix problems with models
 - clean notebooks contents
 - push output models via Git LFS
