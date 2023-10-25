@@ -9,8 +9,12 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
 from flask import Flask, jsonify, request, redirect, render_template
 
+from helpers import get_model
 
 app = Flask(__name__)
+
+
+model = get_model("local-notebooks/models/medical_trial_model.h5")
 
 @app.route("/")
 def index():
