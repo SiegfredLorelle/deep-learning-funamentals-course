@@ -1,3 +1,12 @@
+import base64
+import numpy as np
+import io
+from PIL import Image
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import backend as K
+from tensorflow.keras.models import Sequential, load_model
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
 from flask import Flask, jsonify, request, redirect, render_template
 
 
@@ -24,7 +33,6 @@ def hello():
 
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
-    ...
     if request.method == "GET":
         return render_template("predict.html")
     
