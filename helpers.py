@@ -1,12 +1,12 @@
 # import base64
-# import numpy as np
+import numpy as np
 # import io
 # from PIL import Image
 import tensorflow as tf
 from tensorflow import keras
 # from tensorflow.keras import backend as K
 from tensorflow.keras.models import Sequential, load_model
-# from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
 
 def get_model(h5_file):
     model = load_model(h5_file)
