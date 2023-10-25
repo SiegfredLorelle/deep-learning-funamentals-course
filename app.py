@@ -13,8 +13,9 @@ from helpers import get_model, preprocess_images
 
 app = Flask(__name__)
 
-
-model = get_model("local-notebooks/models/medical_trial_model.h5")
+# Replace this with the path of your saved model
+# If you do not have a model, run kaggle-notebooks/convolutional-neural-networks.ipynb to save the model
+model = get_model("kaggle-notebooks/models/cats-vs-dogs-(92-test-acc).h5")
 
 @app.route("/")
 def index():
