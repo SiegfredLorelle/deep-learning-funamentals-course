@@ -4,9 +4,9 @@ import io
 from PIL import Image
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import backend as K
-from tensorflow.keras.models import Sequential, load_model
-from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
+# from tensorflow.keras import backend as K
+# from tensorflow.keras.models import Sequential, load_model
+# from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
 from flask import Flask, jsonify, request, redirect, render_template
 
 from helpers import get_model, preprocess_images
