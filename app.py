@@ -9,7 +9,7 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array
 from flask import Flask, jsonify, request, redirect, render_template
 
-from helpers import get_model
+from helpers import get_model, preprocess_images
 
 app = Flask(__name__)
 
@@ -41,3 +41,19 @@ def predict():
         return render_template("predict.html")
     
     # For post method
+    message = request.get_json(force=True)
+    encoded = message["image"]
+    decoded = base64.b64decode(encoded)
+    image = Image.open(io.BytesIO(decoded))
+    processed_image = preprocess_image(image, target_size=(224, 224))
+
+    prediction = model.predict(processed_image).tolist()
+
+    response = {
+        "prediction": {
+            "dog": prediction[0][0],
+            "cat": prediction[0][1],
+        }
+    }
+
+    return jsonify(response)
